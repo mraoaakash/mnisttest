@@ -12,4 +12,4 @@ source ~/.bashrc
 
 conda activate histoimgan
 
-python3 /home/rintu.kutum/test/mnisttest
+python3 /home/rintu.kutum/test/mnisttest/mnist.py
