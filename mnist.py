@@ -3,9 +3,10 @@ import torch
 
 
 # NUMBER OF GPUS   
-print(torch.cuda.device_count())
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
+if __name__ == '__main__':
+    print(torch.cuda.device_count())
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    print(device)
 
 
 # n_epochs = 3
