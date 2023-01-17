@@ -1,11 +1,9 @@
-import time
 import torch
 # import tensorflow as tf
 import torchvision
 
 
 # NUMBER OF GPUS   
-start_time = time.time()
 print(torch.cuda.device_count())
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(device)
@@ -153,5 +151,3 @@ for i in range(6):
   plt.xticks([])
   plt.yticks([])
   plt.savefig('/home/rintu.kutum/test/mnisttest/fig3.png')
-
-print("--- %s seconds ---" % (time.time() - start_time))
