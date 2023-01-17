@@ -1,6 +1,8 @@
 #! /bin/bash
 #PBS -N test
 #PBS -o out.log
+#PBS -l host=compute3
+#PBS -l ngpus=1
 #PBS -e err.log
 #PBS -q gpu
 
