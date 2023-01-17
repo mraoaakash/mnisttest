@@ -23,7 +23,7 @@ torch.backends.cudnn.enabled = False
 torch.manual_seed(random_seed)
 
 train_loader = torch.utils.data.DataLoader(
-  torchvision.datasets.MNIST('/files/', train=True, download=True,
+  torchvision.datasets.MNIST('/home/rintu.kutum/test/mnisttest/files/', train=True, download=True,
                              transform=torchvision.transforms.Compose([
                                torchvision.transforms.ToTensor(),
                                torchvision.transforms.Normalize(
@@ -32,7 +32,7 @@ train_loader = torch.utils.data.DataLoader(
   batch_size=batch_size_train, shuffle=True)
 
 test_loader = torch.utils.data.DataLoader(
-  torchvision.datasets.MNIST('/files/', train=False, download=True,
+  torchvision.datasets.MNIST('/home/rintu.kutum/test/mnisttest/files/', train=False, download=True,
                              transform=torchvision.transforms.Compose([
                                torchvision.transforms.ToTensor(),
                                torchvision.transforms.Normalize(
@@ -53,7 +53,7 @@ for i in range(6):
   plt.title("Ground Truth: {}".format(example_targets[i]))
   plt.xticks([])
   plt.yticks([])
-  plt.savefig('/home/aakash.rao_ug23/tes/mnisttest/fig1.png')
+  plt.savefig('/home/rintu.kutum/test/mnisttest/fig1.png')
 
 
 
@@ -106,8 +106,8 @@ def train(epoch):
       train_losses.append(loss.item())
       train_counter.append(
         (batch_idx*64) + ((epoch-1)*len(train_loader.dataset)))
-      torch.save(network.state_dict(), '/results/model.pth')
-      torch.save(optimizer.state_dict(), '/results/optimizer.pth')
+      torch.save(network.state_dict(), '/home/rintu.kutum/test/mnisttest/results/model.pth')
+      torch.save(optimizer.state_dict(), '/home/rintu.kutum/test/mnisttest/results/optimizer.pth')
 
 def test():
   network.eval()
@@ -136,7 +136,7 @@ plt.scatter(test_counter, test_losses, color='red')
 plt.legend(['Train Loss', 'Test Loss'], loc='upper right')
 plt.xlabel('number of training examples seen')
 plt.ylabel('negative log likelihood loss')
-plt.savefig('/home/aakash.rao_ug23/tes/mnisttest/fig2.png')
+plt.savefig('/home/rintu.kutum/test/mnisttest/fig2.png')
 
 
 with torch.no_grad():
@@ -151,5 +151,5 @@ for i in range(6):
     output.data.max(1, keepdim=True)[1][i].item()))
   plt.xticks([])
   plt.yticks([])
-  plt.savefig('/home/aakash.rao_ug23/tes/mnisttest/fig3.png')
+  plt.savefig('/home/rintu.kutum/test/mnisttest/fig3.png')
 
